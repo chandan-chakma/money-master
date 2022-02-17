@@ -29,30 +29,34 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     // console.log(totalBalance.innerText);
 
     // clear all field 
-    // incomeField.value = '';
+
     foodField.value = '';
     rentField.value = '';
     clothesField.value = '';
 
-});
-
-document.getElementById('save-btn').addEventListener('click', function () {
-    const saveField = document.getElementById('save');
-    const save = saveField.value;
-    // console.log(saveField.value);
-    const saveAmount = document.getElementById('saving-money');
-    const saving = saveAmount.innerText;
-    saveAmount.innerText = parseFloat(incomeField.value) * parseFloat(saveField.value) / 100;
-    // console.log(saveAmount.innerText)
-
-    const remainingBalance = document.getElementById('remaining');
-    const remain = remainingBalance.innerText;
-    remainingBalance.innerText = parseFloat(totalBalance.innerText) - parseFloat(saveAmount.innerText);
+    document.getElementById('save-btn').addEventListener('click', function () {
+        const saveField = document.getElementById('save');
+        const save = saveField.value;
+        // console.log(saveField.value);
+        const saveAmount = document.getElementById('saving-money');
+        const saving = saveAmount.innerText;
+        saveAmount.innerText = parseFloat(incomeField.value) * parseFloat(saveField.value) / 100;
+        // console.log(saveAmount.innerText)
 
 
+        const remainingBalance = document.getElementById('remaining');
+        const remain = remainingBalance.innerText;
 
-    // clear field 
-    saveField.value = '';
+        remainingBalance.innerText = totalBalance.innerText - saveAmount.innerText;
+
+
+
+        // clear field 
+        saveField.value = '';
+
+    })
 
 })
+
+
 
